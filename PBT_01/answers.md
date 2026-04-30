@@ -7,6 +7,7 @@
 4. **Nhận Response**: Server xử lý và gửi ngược lại HTTP Response (chứa mã 200 OK và các file HTML/CSS/JS).
 5. **Rendering**: Trình duyệt đọc code và hiển thị giao diện hoàn chỉnh lên màn hình.
 
+- Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 1.Web hoạt động như thế nào?
 
 2. Trong DevTools của Chrome, tab Network cho thấy thông tin gì? Hãy mở một trang web bất kỳ, chụp screenshot tab Network và đánh dấu (vẽ mũi tên/khoanh tròn) vào:
 Status Code của request đầu tiên
@@ -14,6 +15,7 @@ Tổng thời gian load trang
 Một request trả về file CSS
 ![ảnh](./screenshots/network_shopee.png)
 
+- Tài liệu: tuan_1_html5/01_introduction_html_universe.md - phần 4.3 Developer Tools (F12) — "Kính hiển vi" cho website
 ---
 # Câu A2- Semantic HTML
 Tại sao trang web dưới đây bị Google đánh giá SEO thấp? Liệt kê ít nhất 4 lỗi semantic và sửa lại.
@@ -69,6 +71,7 @@ Các lỗi chính:
     <p>© 2026 ShopTLU</p>
 </footer>
 ```
+- Tài liệu: tuan_1_html5/04_visible_part_html.md
 
 ---
 # Câu A3- Semantic HTML
@@ -86,7 +89,7 @@ Các lỗi chính:
 - Thẻ `<div>` là block element: luôn chiếm 1 dòng riêng
 `
 - Thẻ `<span>`, `<strong>` là inline element: hiển thị cùng dòng
-
+- Tài liệu: tuan_1_html5/02_basic_structure_html.md
 ---
 # Câu A4 - Table
 1. Phân biệt `<thead>`, `<tbody>`, `<tfoot>`
@@ -103,7 +106,7 @@ Các lỗi chính:
     - Hiển thị kém linh hoạt (responsive kém): Table khó thích nghi với mobile
 
     - Tải trang chậm hơn
-
+- Tài liệu: tuan_1_html5/05_tables_hyperlinks.md
 ---
 # Câu B3: Debug HTML
 Lỗi 1: Dòng 1 – Sai cú pháp khai báo DOCTYPE – Cách sửa: Đổi thành <!DOCTYPE html>.
@@ -229,5 +232,5 @@ Thẻ `<footer>`: Phần cuối trang web
 ```
 ----
 # Câu C2:
-Dùng toàn `<div>` là cách làm nhanh nhưng không tốt về lâu dài. Semantic HTML giúp rõ nghĩa hơn cho cả máy và người.Thứ nhất, về SEO, các thẻ như `<header>, <main>, <article>` giúp Google hiểu cấu trúc trang tốt hơn, từ đó dễ xếp hạng cao hơn. Nếu chỉ dùng ``<div>`, công cụ tìm kiếm khó biết đâu là nội dung chính.Thứ hai, về Accessibility, các trình đọc màn hình (cho người khiếm thị) dựa vào semantic để đọc đúng nội dung. Ví dụ `<nav>` giúp biết đó là menu, `<article>` là bài viết. Nếu dùng toàn `<div>`, trải nghiệm sẽ kém.Ví dụ thực tế: dùng `<article>` cho mỗi bình luận sẽ giúp tách rõ từng nội dung, dễ style và dễ đọc hơn so với `<div>`.
+Dùng toàn `<div>` là cách làm nhanh nhưng không tốt về lâu dài. Semantic HTML giúp rõ nghĩa hơn cho cả máy và người.Thứ nhất, về SEO, các thẻ như `<header>, <main>, <article>` giúp Google hiểu cấu trúc trang tốt hơn, từ đó dễ xếp hạng cao hơn. Nếu chỉ dùng `<div>`, công cụ tìm kiếm khó biết đâu là nội dung chính.Thứ hai, về Accessibility, các trình đọc màn hình (cho người khiếm thị) dựa vào semantic để đọc đúng nội dung. Ví dụ `<nav>` giúp biết đó là menu, `<article>` là bài viết. Nếu dùng toàn `<div>`, trải nghiệm sẽ kém.Ví dụ thực tế: dùng `<article>` cho mỗi bình luận sẽ giúp tách rõ từng nội dung, dễ style và dễ đọc hơn so với `<div>`.
 Tuy nhiên, `<div>` vẫn phù hợp khi chỉ cần chia layout đơn giản hoặc không có ý nghĩa rõ ràng (ví dụ: bọc CSS).
