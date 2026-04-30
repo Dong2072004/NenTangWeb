@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Validation Test - CSE391</title>
+    <style>
+        form { margin: 20px; line-height: 2.5; }
+        label { display: inline-block; width: 150px; }
+    </style>
+</head>
+<body>
+    <h2>Kiểm tra Validation HTML5</h2>
+    <form>
+        <label>Required:</label>
+        <input type="text" required value=""><br>
+
+        <label>Email:</label>
+        <input type="email" value="abc"><br>
+
+        <label>Number (Max 10):</label>
+        <input type="number" min="1" max="10" value="15"><br>
+
+        <label>Pattern (10 số):</label>
+        <input type="text" pattern="[0-9]{10}" value="abc123"><br>
+
+        <label>Password (Min 8):</label>
+        <input type="password" minlength="8" value="123"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
