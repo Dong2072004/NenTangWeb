@@ -138,6 +138,96 @@ Thẻ `<footer>`: Phần cuối trang web
 ![ảnh](./screenshots/footer.png)
 2. Thẻ `<table>`: em ko tìm thấy
 3. Thẻ `<form>`
-Không khai báo trực tiếp `method/action` trong HTML (xử lý qua JS), mặc định trình duyệt hiểu là `method="get"` và `action` là trang hiện tại.
-input: text
+
+- Không khai báo trực tiếp `method/action` trong HTML (xử lý qua JS), mặc định trình duyệt hiểu là `method="get"` và `action` là trang hiện tại.
+- input: text
 ![ảnh](./screenshots/form.png)
+---
+# CâuC1:
+
+```html
+<!-- Header + Navigation -->
+<header> <!-- header: phần đầu trang -->
+  <nav> <!-- nav: chứa menu điều hướng -->
+    <ul> <!-- ul: danh sách menu -->
+      <li><a href="#">Trang chủ</a></li> <!-- link điều hướng -->
+      <li><a href="#">Sản phẩm</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb"> <!-- nav: điều hướng breadcrumb -->
+  <ol> <!-- ol: breadcrumb có thứ tự -->
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Điện thoại</a></li>
+    <li>iPhone 16</li> <!-- item hiện tại -->
+  </ol>
+</nav>
+
+<!-- Main content -->
+<main> <!-- main: nội dung chính -->
+
+  <!-- Khu ảnh sản phẩm -->
+  <section> <!-- section: nhóm nội dung ảnh -->
+    <h2>Hình ảnh sản phẩm</h2> <!-- tiêu đề -->
+    <div> <!-- div: chứa nhiều ảnh -->
+      <img src="#" alt="ảnh 1">
+      <img src="#" alt="ảnh 2">
+      <img src="#" alt="ảnh 3">
+      <img src="#" alt="ảnh 4">
+      <img src="#" alt="ảnh 5">
+    </div>
+  </section>
+
+  <!-- Thông tin sản phẩm -->
+  <section> <!-- section: thông tin chính -->
+    <h1>iPhone 16</h1> <!-- tên sản phẩm -->
+    <p>Giá: ...</p> <!-- giá -->
+    <p>Đánh giá: ★★★★☆</p> <!-- rating -->
+    <p>Mô tả: ...</p> <!-- mô tả -->
+  </section>
+
+  <!-- Bảng thông số -->
+  <section> <!-- section: thông số -->
+    <h2>Thông số kỹ thuật</h2>
+    <table> <!-- table: dữ liệu dạng bảng -->
+      <tr>
+        <th>Thông số</th> <!-- tiêu đề cột -->
+        <th>Giá trị</th>
+      </tr>
+      <tr>
+        <td>Màn hình</td>
+        <td>...</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Đánh giá -->
+  <section> <!-- section: đánh giá -->
+    <h2>Bình luận</h2>
+    <article> <!-- article: 1 comment độc lập -->
+      <p>Người dùng A: Sản phẩm tốt</p>
+    </article>
+  </section>
+
+  <!-- Sidebar -->
+  <aside> <!-- aside: nội dung phụ -->
+    <h2>Sản phẩm tương tự</h2>
+    <ul>
+      <li><a href="#">Sản phẩm 1</a></li>
+      <li><a href="#">Sản phẩm 2</a></li>
+    </ul>
+  </aside>
+
+</main>
+
+<!-- Footer -->
+<footer> <!-- footer: cuối trang -->
+  <p>© 2026 Shop</p>
+</footer>
+```
+----
+# Câu C2:
+Dùng toàn `<div>` là cách làm nhanh nhưng không tốt về lâu dài. Semantic HTML giúp rõ nghĩa hơn cho cả máy và người.Thứ nhất, về SEO, các thẻ như `<header>, <main>, <article>` giúp Google hiểu cấu trúc trang tốt hơn, từ đó dễ xếp hạng cao hơn. Nếu chỉ dùng ``<div>`, công cụ tìm kiếm khó biết đâu là nội dung chính.Thứ hai, về Accessibility, các trình đọc màn hình (cho người khiếm thị) dựa vào semantic để đọc đúng nội dung. Ví dụ `<nav>` giúp biết đó là menu, `<article>` là bài viết. Nếu dùng toàn `<div>`, trải nghiệm sẽ kém.Ví dụ thực tế: dùng `<article>` cho mỗi bình luận sẽ giúp tách rõ từng nội dung, dễ style và dễ đọc hơn so với `<div>`.
+Tuy nhiên, `<div>` vẫn phù hợp khi chỉ cần chia layout đơn giản hoặc không có ý nghĩa rõ ràng (ví dụ: bọc CSS).
