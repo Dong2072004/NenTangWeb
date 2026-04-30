@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+</head>
+<body>
+
+<h1>Thanh toán đơn hàng</h1>
+<h2>Giỏ hàng</h2>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Sản phẩm</th>
+      <th>Đơn giá</th>
+      <th>Số lượng</th>
+      <th>Thành tiền</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>iPhone 16</td>
+      <td>20.000.000đ</td>
+      <td>1</td>
+      <td>20.000.000đ</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>AirPods</td>
+      <td>5.000.000đ</td>
+      <td>2</td>
+      <td>10.000.000đ</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Ốp lưng</td>
+      <td>500.000đ</td>
+      <td>1</td>
+      <td>500.000đ</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="4"><strong>Tổng cộng</strong></td>
+      <td><strong>30.500.000đ</strong></td>
+    </tr>
+  </tfoot>
+</table>
+
+<hr>
+
+<form action="#" method="POST">
+<h2>Thanh toán</h2>
+<p>Phương thức thanh toán:</p>
+
+<input type="radio" id="cod" name="payment">
+<label for="cod">COD</label>
+
+<input type="radio" id="bank" name="payment">
+<label for="bank">Chuyển khoản</label>
+
+<input type="radio" id="ewallet" name="payment">
+<label for="ewallet">Ví điện tử</label>
+
+<br><br>
+
+<label for="coupon">Mã giảm giá:</label>
+<input type="text" id="coupon" name="coupon"
+       pattern="SALE[0-9]{4}"
+       placeholder="VD: SALE2026">
+
+<br><br>
+
+<label for="note">Ghi chú:</label><br>
+<textarea id="note" name="note" rows="3"
+          placeholder="Nhập ghi chú (nếu có)"></textarea>
+
+<hr>
+
+<h2>Thông tin giao hàng</h2>
+
+<label for="delivery-date">Ngày giao hàng:</label>
+<input type="date" id="delivery-date" name="delivery-date"
+       min="2026-05-02">
+
+<br><br>
+
+<label for="time-slot">Khung giờ:</label>
+<select id="time-slot" name="time-slot">
+  <option>Sáng (8-12h)</option>
+  <option>Chiều (14-18h)</option>
+  <option>Tối (18-21h)</option>
+</select>
+
+<br><br>
+
+<label for="days">Thời gian giao (ngày):</label>
+<input type="range" id="days" name="days"
+       min="1" max="7" step="1">
+
+<br><br>
+
+<button type="submit" aria-label="Xác nhận đặt hàng">
+  Đặt hàng
+</button>
+
+</form>
+
+</body>
+</html>
