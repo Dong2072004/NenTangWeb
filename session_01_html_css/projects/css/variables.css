@@ -1,0 +1,8 @@
+:root {
+    --color-primary: #6366f1;    
+    --color-bg-hero: #8261ee;    
+    --color-accent: #ffcc00;     
+    --color-dark: #334155;
+    --color-light: #ffffff;
+    --font-main: 'Inter', 'Segoe UI', sans-serif;
+}
