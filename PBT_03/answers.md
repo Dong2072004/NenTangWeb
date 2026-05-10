@@ -142,3 +142,45 @@ Inline style (nhúng trực tiếp vào thẻ) có độ ưu tiên cao hơn tấ
 4. Nếu Rule A thêm `!important`, element có màu gì? Tại sao?
 !important sẽ ưu tiên hơn các rule bình thường, kể cả rule có specificity cao hơn. Các rule khác không có !important -> black
 ---
+
+# Câu B2 — Box Model Lab
+## Phần 1
+
+Hộp 1 (content-box):
+- width khai báo: 300px
+- padding: 20px x 2 = 40px
+- border: 5px x 2 = 10px
+- Chiều rộng thực tế:
+  300 + 40 + 10 = 350px
+
+Hộp 2 (border-box):
+- width thực tế giữ nguyên = 300px
+- padding và border được tính bên trong width
+
+Giải thích:
+- content-box: width chỉ tính phần content
+- border-box: width bao gồm content + padding + border
+
+## Phần 2
+
+Tổng chiều rộng nếu KHÔNG dùng border-box:
+
+- Sidebar:
+  250 + 30 = 280px
+
+- Content:
+  500 + 40 = 540px
+
+- Ads:
+  250 + 30 = 280px
+
+Tổng:
+280 + 540 + 280 = 1100px
+
+=> Layout vượt quá container 1000px.
+
+Nếu dùng:
+box-sizing: border-box;
+
+thì padding sẽ được tính bên trong width,
+tổng vẫn đúng 1000px.

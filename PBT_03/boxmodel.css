@@ -1,0 +1,65 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* =========================
+   PHẦN 1
+========================= */
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: lightblue;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+/* =========================
+   PHẦN 2
+========================= */
+
+.container {
+    width: 1000px;
+    display: flex;
+    margin-top: 30px;
+    border: 2px solid #333;
+}
+
+
+.sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #dfefff;
+}
+
+.content {
+    width: 500px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.ads {
+    width: 250px;
+    padding: 15px;
+    background-color: #ffe7c2;
+}
