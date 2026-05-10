@@ -1,28 +1,28 @@
 # Câu 1 - 3 Cách nhúng CSS
 1. Inline CSS (CSS nội dòng)
-Cách làm: Thêm trực tiếp thuộc tính style vào thẻ HTML muốn định dạng.  Ví dụ code:
+- Cách làm: Thêm trực tiếp thuộc tính style vào thẻ HTML muốn định dạng.  Ví dụ code:
 `<p style="color:red;">This is a paragraph.</p>`   
-Ưu điểm: Áp dụng nhanh một kiểu duy nhất cho một phần tử cụ thể.  
-Nhược điểm: Làm mã HTML trở nên rối, khó quản lý khi có nhiều phần tử cần định dạng giống nhau.
-Khi nào nên dùng: Khi cần thay đổi kiểu dáng nhanh chóng cho một phần tử duy nhất mà không muốn viết thêm vào file CSS chính.  
+- Ưu điểm: Áp dụng nhanh một kiểu duy nhất cho một phần tử cụ thể.  
+- Nhược điểm: Làm mã HTML trở nên rối, khó quản lý khi có nhiều phần tử cần định dạng giống nhau.
+- Khi nào nên dùng: Khi cần thay đổi kiểu dáng nhanh chóng cho một phần tử duy nhất mà không muốn viết thêm vào file CSS chính.  
 2. Internal CSS (CSS nội bộ)
-Cách làm: Sử dụng cặp thẻ `<style></style>` đặt trong file HTML, thường nằm bên trong thẻ <head>.  
+- Cách làm: Sử dụng cặp thẻ `<style></style>` đặt trong file HTML, thường nằm bên trong thẻ <head>.  
 Ví dụ code: 
 ```  
 <style>
   p { color: red; }
 </style>
 ```
-Ưu điểm: Quản lý tập trung các quy tắc CSS cho một trang cụ thể, không cần tạo file riêng. 
-Nhược điểm: Chỉ có tác dụng trên một trang HTML duy nhất, không thể tái sử dụng cho các trang khác trong cùng website.  
-Khi nào nên dùng: Khi bạn chỉ có một trang HTML duy nhất cần định dạng riêng biệt.  
+- Ưu điểm: Quản lý tập trung các quy tắc CSS cho một trang cụ thể, không cần tạo file riêng. 
+- Nhược điểm: Chỉ có tác dụng trên một trang HTML duy nhất, không thể tái sử dụng cho các trang khác trong cùng website.  
+- Khi nào nên dùng: Khi bạn chỉ có một trang HTML duy nhất cần định dạng riêng biệt.  
 3. External CSS (CSS bên ngoài)
-Cách làm: Tạo một file .css riêng biệt, sau đó dùng thẻ <link> trong thẻ <head> của HTML để dẫn file vào qua thuộc tính href.  
+- Cách làm: Tạo một file .css riêng biệt, sau đó dùng thẻ <link> trong thẻ <head> của HTML để dẫn file vào qua thuộc tính href.  
 Ví dụ code: 
 `<link rel="stylesheet" href="mystyle.css"> `  
-Ưu điểm: Có thể thay đổi giao diện của toàn bộ website chỉ bằng việc chỉnh sửa một tệp tin duy nhất.  
-Nhược điểm: Trình duyệt mất thêm thời gian để tải file CSS từ bên ngoài về.
-Khi nào nên dùng: Đây là cách chuyên nghiệp và phổ biến nhất, nên dùng cho tất cả các dự án có nhiều trang web. 
+- Ưu điểm: Có thể thay đổi giao diện của toàn bộ website chỉ bằng việc chỉnh sửa một tệp tin duy nhất.  
+- Nhược điểm: Trình duyệt mất thêm thời gian để tải file CSS từ bên ngoài về.
+- Khi nào nên dùng: Đây là cách chuyên nghiệp và phổ biến nhất, nên dùng cho tất cả các dự án có nhiều trang web. 
 
 Tài liệu tham chiếu: tuan_2_css_core/08_introduction_css.md 
 ---
@@ -115,16 +115,20 @@ p { color: black; }                    /* Rule A */
 p.price { color: green; }             /* Rule D */
 ```
 1. Specificity score (a, b, c) của từng rule
-p { color: black; } → Rule A
+
+- p { color: black; } → Rule A
     Selector loại (p) = 1
     Score: (0, 0, 1)
-.price { color: blue; } → Rule B
+
+- .price { color: blue; } → Rule B
     Class (.price) = 1
     Score: (0, 1, 0)
-#main-price { color: red; } → Rule C
+
+- #main-price { color: red; } → Rule C
     ID (#main-price) = 1
     Score: (1, 0, 0)
-p.price { color: green; } → Rule D
+
+- p.price { color: green; } → Rule D
     p = element = 1
     .price = class = 1
     Score: (0, 1, 1)
