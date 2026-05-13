@@ -152,10 +152,12 @@ Hộp 1 (content-box):
 - border: 5px x 2 = 10px
 - Chiều rộng thực tế:
   300 + 40 + 10 = 350px
+![ảnh](./screenshots/Hộp1.png)
 
 Hộp 2 (border-box):
 - width thực tế giữ nguyên = 300px
 - padding và border được tính bên trong width
+![ảnh](./screenshots/Hộp2.png)
 
 Giải thích:
 - content-box: width chỉ tính phần content
@@ -184,3 +186,34 @@ box-sizing: border-box;
 
 thì padding sẽ được tính bên trong width,
 tổng vẫn đúng 1000px.
+---
+# Câu C1 - Debug CSS Layout
+1. Tính chiều rộng thực tế (Actual Width)
+Trong chế độ mặc định (box-sizing: content-box), chiều rộng thực tế của một phần tử được tính theo công thức:
+`Actual Width = width + padding (left + right) + border (left + right)`
+Sidebar: 300 + 40 padding + 2 border = 342px
+Content: 660 + 60 padding + 2 border = 722px
+2. Layout bị vỡ vì tổng chiều rộng Sidebar và Content là 1064px. Khối Container chỉ rộng 960px, không chứa đủ 2 khối kia cùng 1 hàng nên khối Content bị đẩy xuống dưới
+
+3. Hai cách sửa 
+Cách 1: dùng border-box cho cả hai 
+Cách 2: tính lại width
+4. 
+![ảnh](./screenshots/CauC1.png)
+---
+# Câu C2 — Cascade Puzzle
+1. "Sản phẩm A" (h2) có font-size: 20px và color: green; 
+vì font-size áp dụng từ rule `.card .title { font-size: 20px; }`, 
+còn color là green vì element có class `.highlight`, và rule `.highlight { color: green !important; }` có `!important` nên ưu tiên cao nhất.
+
+2. "Mô tả sản phẩm" (p trong card featured) có color: blue; 
+vì rule `.card p { color: inherit; }` dùng `inherit` nên kế thừa màu từ phần tử cha `.card`, mà `.card` có `color: blue`.
+
+3. "Sản phẩm B" (h2) có font-size: 20px và color: blue; 
+vì font-size áp dụng từ `.card .title { font-size: 20px; }`, 
+còn color kế thừa từ phần tử cha `.card` vì thẻ `h2` không có rule màu riêng.
+
+4. "Mô tả sản phẩm B" (p.highlight) có color: green; 
+vì có class `.highlight`, và rule `.highlight { color: green !important; }` có `!important` nên ghi đè màu kế thừa từ `.card`.
+
+![ảnh](./screenshots/CâuC2.png)
