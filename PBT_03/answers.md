@@ -216,4 +216,4 @@ còn color kế thừa từ phần tử cha `.card` vì thẻ `h2` không có ru
 4. "Mô tả sản phẩm B" (p.highlight) có color: green; 
 vì có class `.highlight`, và rule `.highlight { color: green !important; }` có `!important` nên ghi đè màu kế thừa từ `.card`.
 
-![ảnh](./screenshots/CâuC2.png)
+![ảnh](./screenshots/Câu C2.png)
