@@ -43,6 +43,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; 
+        gap: 30px;
+        text-align: center;
+    }
+    .info-item {
+        justify-content: center; 
+    }
+    .submit-btn {
+        align-self: center; 
+    }
+}
                     <tr>
                         <td>HTML</td>
                         <td>⭐⭐</td>
