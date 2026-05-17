@@ -1,0 +1,40 @@
+.portfolio-section {
+    padding: 100px 0;
+    background-color: var(--color-light);
+}
+
+.portfolio-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột trên desktop */
+    gap: 30px; /* Khoảng cách giữa các card */
+    padding: 0 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Giữ tỷ lệ ảnh 4:3 cố định không bị bóp méo */
+    object-fit: cover;
+}
+
+/* Responsive cơ bản */
+@media (max-width: 1024px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); } /* 2 cột trên tablet */
+}
+@media (max-width: 768px) {
+    .portfolio-grid { grid-template-columns: 1fr; } /* 1 cột trên mobile */
+}
