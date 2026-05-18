@@ -18,3 +18,20 @@
 .text-primary {
     color: var(--bs-primary) !important;
 }
+
+.card {
+    border-radius: 16px !important;
+}
+
+.btn {
+    border-radius: 8px !important;
+}
+
+.form-control {
+    border-radius: 10px !important;
+}
+
+.py-section {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
