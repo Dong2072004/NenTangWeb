@@ -121,3 +121,91 @@
 ![ảnh](./screenshots/B1_1.png)
 - giao diện khi lướt xuống
 ![ảnh](./screenshots/B1_2.png)
+
+# Câu C1 — Flexbox vs Grid: Khi nào dùng gì?
+1. Navigation bar ngang (logo + menu + buttons)
+- Lựa chọn: Flexbox
+- Giải thích: Thanh điều hướng ngang là tập hợp các phần tử sắp xếp theo một chiều duy nhất (trục ngang). Flexbox xử lý cực tốt việc căn giữa theo chiều dọc `(align-items: center)` và phân bổ khoảng cách linh hoạt giữa các cụm phần tử `(justify-content: space-between)`.
+2. Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước)
+- Lựa chọn: Grid
+- Giải thích: Đây là bố cục dạng lưới 2 chiều (hàng và cột) cố định. Việc sử dụng CSS Grid với cấu hình `grid-template-columns: repeat(3, 1fr)` sẽ tự động tính toán tạo ra 3 cột bằng nhau, và khi số lượng ảnh tăng lên không giới hạn, các ảnh mới sẽ tự động nhảy xuống hàng tiếp theo một cách thẳng hàng, vuông vức mà không lo bị lệch dòng.
+3. Layout blog: main content + sidebar
+- Lựa chọn: Grid (hoặc Flexbox đều được, nhưng tối ưu nhất cho khung lớn là Grid)
+- Giải thích: Đây là layout tổng thể của trang web (Macro Layout). Sử dụng CSS Grid giúp thiết lập hệ thống cột rõ ràng ngay từ đầu (ví dụ: `grid-template-columns: 1fr 300px`), quản lý khoảng cách bằng gap trực quan và giúp cấu trúc bố cục trang web mạch lạc, không bị phụ thuộc vào kích thước nội dung bên trong.
+4. Footer với 4 cột thông tin (Về chúng tôi, Liên kết, Hỗ trợ, Liên hệ)
+- Lựa chọn: Grid hoặc Flexbox (Kết hợp cả hai là tốt nhất)
+- Giải thích:  Nên dùng Grid cho phần bao ngoài của Footer để chia đều khung thành 4 cột cố định một cách nhanh chóng (`grid-template-columns: repeat(4, 1fr)`).
+Bên trong từng cột thông tin nhỏ, có thể dùng Flexbox theo chiều dọc (flex-direction: column) để quản lý danh sách các thẻ liên kết đi kèm.
+5. Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy)
+- Lựa chọn: Flexbox
+- Giải thích: Cấu trúc bên trong của một card sản phẩm đi theo một chiều duy nhất từ trên xuống dưới (trục dọc). Khi thiết lập `display: flex;` `flex-direction: column`; cho card, ta chỉ cần thêm thuộc tính  `margin-top: auto;` cho nút bấm ở dưới cùng. Cơ chế của Flexbox sẽ tự động đẩy nút bấm bám chặt vào đáy card một cách hoàn hảo, bất kể phần text ở giữa dài hay ngắn.
+
+# Câu C2 — Debug Flexbox
+## Lỗi 1: Cards không đều chiều cao — nút "Mua" bị nhảy lên/xuống
+1. Nguyên nhân
+- Thẻ cha `.card-container` mới chỉ kích hoạt Flexbox để xếp các `.card` thành hàng ngang. Bản thân các .card có độ cao bằng nhau nhờ cơ chế `align-items: stretch` mặc định của Flexbox.
+
+- Tuy nhiên, bên trong mỗi `.card` lại chưa phải là một Flex container. Do đó, các thành phần con (`img, h3, .btn`) xếp hàng dọc theo dạng block thông thường. Khi tiêu đề h3 của card này dài 2 dòng, card kia dài 1 dòng, nút `.btn` sẽ bị đẩy theo độ dài của chữ dẫn đến tình trạng trồi sụt, không thẳng hàng ở đáy
+2. Cách sửa
+Chúng ta cần biến `.card` thành một Flex container theo hướng dọc (column), sau đó gán `margin-top: auto` cho nút bấm để ép nó luôn bám đáy.
+```html
+.card-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+}
+.card { 
+    width: 30%; 
+    margin: 1.5%; 
+    /* BỔ SUNG CODE SỬA TẠI ĐÂY */
+    display: flex;
+    flex-direction: column;
+}
+.card img { width: 100%; }
+.card h3 { font-size: 18px; }
+.card .btn { 
+    padding: 10px; 
+    /* BỔ SUNG CODE SỬA TẠI ĐÂY */
+    margin-top: auto; 
+}
+```
+## Lỗi 2: Muốn items nằm giữa cả ngang lẫn dọc trong container 100vh, nhưng item vẫn dính góc trái trên
+1. Nguyên nhân
+- Thuộc tính `text-align: center`; viết trong phần tử con `.hero-content` chỉ có tác dụng căn giữa các thành phần dạng văn bản (inline element) nằm bên trong chính nó, chứ không thể tự căn giữa cả khối `.hero-content` so với cha.
+
+- Thẻ cha `.hero` đã có `display: flex;` nhưng chưa hề cấu hình các thuộc tính căn chỉnh tọa độ của Flexbox, khiến phần tử con mặc định bị đẩy về góc trái trên.
+
+2. Cách sửa code CSS
+- Bỏ thuộc tính `text-align` không hiệu quả ở thẻ con đi. 
+- Thay vào đó, thêm bộ đôi quyền lực `justify-content: center` (căn giữa ngang) và `align-items: center` (căn giữa dọc) trực tiếp vào thẻ cha `.hero`.
+```html
+.hero {
+    height: 100vh;
+    display: flex;
+    /* BỔ SUNG CODE SỬA TẠI ĐÂY */
+    justify-content: center;
+    align-items: center;
+}
+.hero-content {
+    /* Có thể giữ lại nếu muốn chữ bên trong card cũng căn giữa */
+    text-align: center; 
+}
+```
+## Lỗi 3: Sidebar bị co lại khi content quá dài
+1. Nguyên nhân
+- Trong cơ chế của Flexbox, các phần tử con mặc định sở hữu thuộc tính `flex-shrink: 1`. 
+- Giá trị này cho phép phần tử tự động co nhỏ kích thước lại (nhỏ hơn mức `width: 250px` được thiết lập) khi không gian hiển thị tổng thể của container bị thiếu hụt.
+
+- Khi khối `.conten` chứa nội dung quá dài hoặc không thể ngắt dòng, nó sẽ phình to ra và ép, hút vắt kiệt không gian của `.sidebar`, khiến sidebar bị méo mó, co cụm lại.
+
+2. Cách sửa code CSS
+- Cần chặn không cho phép `.sidebar` co lại bằng cách đổi thuộc tính `flex-shrink` về giá trị 0.
+- Cách viết tắt chuẩn và nhanh nhất là sử dụng `flex: 0 0 250px;` (viết tắt của `flex-grow: 0;` `flex-shrink: 0;` `flex-basis: 250px;`).
+```html
+.layout { display: flex; }
+.sidebar { 
+    /* THAY THẾ HOẶC SỬA LẠI DÒNG NÀY */
+    flex: 0 0 250px; 
+    /* (Hoặc viết tường minh: width: 250px; flex-shrink: 0;) */
+}
+.content { flex: 1; }
+```

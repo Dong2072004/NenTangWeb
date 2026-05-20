@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang E-Commerce - CSS Grid Layout</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+
+    <div class="ecommerce-grid">
+
+        <header class="header">
+            <div class="brand">E-SHOP MARKET</div>
+            <div class="search-bar"><input type="text" placeholder="Tìm kiếm sản phẩm..."></div>
+        </header>
+
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>SIÊU ĐẠI TIỆC CÔNG NGHỆ</h1>
+                <p>Giảm giá lên đến 50% cho tất cả các mặt hàng chính hãng duy nhất tuần này.</p>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <h3>Bộ lọc sản phẩm</h3>
+            <div class="filter-group">
+                <h4>Thương hiệu</h4>
+                <label><input type="checkbox" checked> Apple</label>
+                <label><input type="checkbox"> Samsung</label>
+                <label><input type="checkbox"> Xiaomi</label>
+            </div>
+            <div class="filter-group">
+                <h4>Khoảng giá</h4>
+                <label><input type="checkbox"> Dưới 10 triệu</label>
+                <label><input type="checkbox"> từ 10 - 20 triệu</label>
+                <label><input type="checkbox"> Trên 20 triệu</label>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="product-subgrid">
+                
+                <div class="product-card featured">
+                    <div class="card-img-placeholder">🌟 SẢN PHẨM NỔI BẬT</div>
+                    <div class="card-body">
+                        <h4>iPad Pro M4 (2026 Edition)</h4>
+                        <p class="desc">Màn hình Tandem OLED siêu sáng, chip xử lý AI đỉnh cao thế hệ mới.</p>
+                        <span class="price">34.990.000 đ</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-img-placeholder">Product Img</div>
+                    <div class="card-body">
+                        <h4>iPhone 15 Pro</h4>
+                        <span class="price">24.500.000 đ</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-img-placeholder">Product Img</div>
+                    <div class="card-body">
+                        <h4>Galaxy S24 Ultra</h4>
+                        <span class="price">26.990.000 đ</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-img-placeholder">Product Img</div>
+                    <div class="card-body">
+                        <h4>Xiaomi 14 Ultra</h4>
+                        <span class="price">21.000.000 đ</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-img-placeholder">Product Img</div>
+                    <div class="card-body">
+                        <h4>Sony WH-1000XM5</h4>
+                        <span class="price">6.800.000 đ</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="card-img-placeholder">Product Img</div>
+                    <div class="card-body">
+                        <h4>AirPods Pro 2</h4>
+                        <span class="price">4.990.000 đ</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <aside class="ads-aside">
+            <div class="ads-placeholder">
+                <p>QUẢNG CÁO</p>
+                <small>Galaxy Z Fold6 mới đổ bộ!</small>
+            </div>
+        </aside>
+
+        <footer class="footer">
+            <p>© 2026 E-Shop Market. All rights reserved. Designed by Student at Thuyloi University.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

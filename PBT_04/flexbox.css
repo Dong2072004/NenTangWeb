@@ -1,6 +1,4 @@
-/* ==========================================
-   RESET CORE CSS & CHUNG
-   ========================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -26,20 +24,18 @@ body {
     padding-left: 10px;
 }
 
-/* ==========================================
-   PHẦN 1 — NAVBAR (THANH ĐIỀU HƯỚNG)
-   ========================================== */
+
 .navbar {
     display: flex;
-    justify-content: space-between; /* Đẩy 3 khối dạt ra hai lề và chính giữa */
-    align-items: center;            /* Căn giữa hoàn hảo theo trục dọc */
+    justify-content: space-between;
+    align-items: center;            
     height: 70px;
     background-color: #ffffff;
     padding: 0 40px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Khối Logo (Bên trái) */
+
 .nav-logo a {
     font-size: 22px;
     font-weight: 800;
@@ -48,11 +44,11 @@ body {
     letter-spacing: 1px;
 }
 
-/* Khối Menu Items (Bên giữa) */
+
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 35px; /* Tạo khoảng cách đều nhau giữa các item */
+    gap: 35px; 
 }
 
 .nav-menu li a {
@@ -62,16 +58,16 @@ body {
     font-size: 16px;
     padding: 8px 0;
     transition: color 0.2s ease, border-bottom 0.2s ease;
-    border-bottom: 2px solid transparent; /* Tránh giật layout khi hover */
+    border-bottom: 2px solid transparent; 
 }
 
-/* Hiệu ứng khi hover menu: đổi màu + tạo đường gạch chân (underline) */
+
 .nav-menu li a:hover {
     color: #007bff;
     border-bottom: 2px solid #007bff;
 }
 
-/* Khối Đăng nhập / Đăng ký (Bên phải) */
+
 .nav-auth {
     display: flex;
     align-items: center;
@@ -106,38 +102,34 @@ body {
 }
 
 
-/* ==========================================
-   PHẦN 2 — PRODUCT CARDS GRID (LƯỚI SẢN PHẨM)
-   ========================================== */
+
 .product-grid {
     display: flex;
-    flex-wrap: wrap;       /* Cho phép tự động xuống hàng khi hết chỗ */
-    gap: 20px;            /* Khoảng cách giữa các ô card */
+    flex-wrap: wrap;      
+    gap: 20px;            
 }
 
-/* Cấu hình kích thước card theo công thức đề bài: 4 cột có gap */
+
 .product-card {
-    /* calc(25% - 20px) trừ hao khoảng trống của gap để xếp vừa khít 4 cột trên một hàng */
+   
     flex: 0 0 calc(25% - 15px); 
     background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    
-    /* Thiết lập flex hướng dọc bên trong mỗi card */
     display: flex;
     flex-direction: column;
     
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hiệu ứng tương tác khi hover vào card: Nhấc lên và tăng shadow */
+
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Phần 1 của card: Ảnh sản phẩm (Phía trên) */
+
 .card-image {
     width: 100%;
     height: 180px;
@@ -146,7 +138,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Đổi màu background giả lập các ảnh khác nhau */
+
 .img-1 { background-color: #e9ecef; }
 .img-2 { background-color: #dee2e6; }
 .img-3 { background-color: #ced4da; }
@@ -156,7 +148,7 @@ body {
 .img-7 { background-color: #ced4da; }
 .img-8 { background-color: #f1f3f5; }
 
-/* Phần 2 của card: Tên + Giá sản phẩm (Ở giữa) */
+
 .card-info {
     margin-bottom: 15px;
 }
@@ -175,7 +167,7 @@ body {
     font-weight: 700;
 }
 
-/* Phần 3 của card: Nút Mua (Dưới cùng) */
+
 .btn-buy {
     width: 100%;
     padding: 10px 0;
@@ -186,8 +178,6 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
-
-    /* ĐẶC BIỆT: Ép nút mua luôn bám chặt xuống đáy card, bất chấp tên sản phẩm ngắn hay dài */
     margin-top: auto; 
 }
 
