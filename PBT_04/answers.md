@@ -148,7 +148,7 @@ Bên trong từng cột thông tin nhỏ, có thể dùng Flexbox theo chiều d
 - Tuy nhiên, bên trong mỗi `.card` lại chưa phải là một Flex container. Do đó, các thành phần con (`img, h3, .btn`) xếp hàng dọc theo dạng block thông thường. Khi tiêu đề h3 của card này dài 2 dòng, card kia dài 1 dòng, nút `.btn` sẽ bị đẩy theo độ dài của chữ dẫn đến tình trạng trồi sụt, không thẳng hàng ở đáy
 2. Cách sửa
 Chúng ta cần biến `.card` thành một Flex container theo hướng dọc (column), sau đó gán `margin-top: auto` cho nút bấm để ép nó luôn bám đáy.
-```html
+```css
 .card-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -177,7 +177,7 @@ Chúng ta cần biến `.card` thành một Flex container theo hướng dọc (
 2. Cách sửa code CSS
 - Bỏ thuộc tính `text-align` không hiệu quả ở thẻ con đi. 
 - Thay vào đó, thêm bộ đôi quyền lực `justify-content: center` (căn giữa ngang) và `align-items: center` (căn giữa dọc) trực tiếp vào thẻ cha `.hero`.
-```html
+```css
 .hero {
     height: 100vh;
     display: flex;
@@ -200,7 +200,7 @@ Chúng ta cần biến `.card` thành một Flex container theo hướng dọc (
 2. Cách sửa code CSS
 - Cần chặn không cho phép `.sidebar` co lại bằng cách đổi thuộc tính `flex-shrink` về giá trị 0.
 - Cách viết tắt chuẩn và nhanh nhất là sử dụng `flex: 0 0 250px;` (viết tắt của `flex-grow: 0;` `flex-shrink: 0;` `flex-basis: 250px;`).
-```html
+```css
 .layout { display: flex; }
 .sidebar { 
     /* THAY THẾ HOẶC SỬA LẠI DÒNG NÀY */
