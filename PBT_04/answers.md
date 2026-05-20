@@ -1,10 +1,10 @@
 # Câu A1 — 5 Loại Positioning
-|Position | Chiếm chỗ? | Tham chiếu vị trí | Cuốn theo trang? |	Use case|
-|static |Có	| Không dùng top/left |	Có| Mặc định|
-|relative | Có | Chính nó |	Có |	Dịch nhẹ, làm mốc cho absolute|
-|absolute | Không | Cha relative gần nhất |	Có | Badge, dropdown, tooltip|
-|fixed | Không | Viewport | Không | Chat button, modal overlay|
-|sticky | Ban đầu có nhưng đến cuối thì không | Viewport (khi dính) | 1 phần: Cuộn đến ngưỡng thì dính | Sticky header, sidebar|
+| Position | Chiếm chỗ? | Tham chiếu vị trí | Cuốn theo trang? |	Use case |
+| static |Có	| Không dùng top/left |	Có| Mặc định |
+| relative | Có | Chính nó |	Có |	Dịch nhẹ, làm mốc cho absolute |
+| absolute | Không | Cha relative gần nhất |	Có | Badge, dropdown, tooltip |
+| fixed | Không | Viewport | Không | Chat button, modal overlay |
+| sticky | Ban đầu có nhưng đến cuối thì không | Viewport (khi dính) | 1 phần: Cuộn đến ngưỡng thì dính | Sticky header, sidebar |
 
 - Câu hỏi thêm: Khi nào `absolute` tham chiếu `body`? Khi nào tham chiếu `parent`? Giải thích khái niệm "nearest positioned ancestor".
 
@@ -116,3 +116,8 @@
 | +--------------+                                       |
 +-------------------------------------------------------+
 ```
+# Câu B1 — Positioning Playground
+- giao diện ban đầu
+![ảnh](./screenshots/B1_1.png)
+- giao diện khi lướt xuống
+![ảnh](./screenshots/B1_2.png)
