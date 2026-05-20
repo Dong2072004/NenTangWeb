@@ -245,3 +245,283 @@ Sau đó HTML sẽ liên kết tới file CSS:
 ```html
 <link rel="stylesheet" href="style.css">
 ```
+----
+# Câu C1 (10đ) — Phân tích trang web thực tế: Youtube
+1. Hình ảnh hiển thị trên 3 kích thước màn hình
+- Mobile (375px):
+![ảnh](./screenshots/Mobile.png)
+- Tablet (768px):
+![ảnh](./screenshots/Tablet.png)
+- Desktop (1440px):
+![ảnh](./screenshots/Desktop.png)
+
+# 1. Mobile (375px)
+
+## Phân tích giao diện
+
+- Navigation chuyển thành dạng mobile.
+- Menu sidebar đầy đủ bị ẩn.
+- Xuất hiện icon hamburger ☰ để mở menu.
+- Thanh tìm kiếm thu gọn thành icon search.
+- Video hiển thị dạng 1 cột.
+- Một số thông tin phụ bị ẩn để tiết kiệm không gian.
+- Font size nhỏ hơn desktop.
+
+## Các thành phần bị ẩn
+
+- Sidebar mở rộng
+- Một số menu text
+- Danh mục chi tiết
+
+---
+
+# 2. Tablet (768px)
+
+## Phân tích giao diện
+
+- Navigation rộng hơn mobile.
+- Sidebar thu gọn dạng icon.
+- Thanh tìm kiếm hiển thị đầy đủ.
+- Video hiển thị khoảng 2–3 cột.
+- Khoảng cách và padding lớn hơn mobile.
+
+## Thay đổi layout
+
+- Grid chuyển từ 1 cột → 2 hoặc 3 cột.
+- Font size tăng nhẹ.
+
+---
+
+# 3. Desktop (1440px)
+
+## Phân tích giao diện
+
+- Navigation hiển thị đầy đủ.
+- Sidebar mở rộng hoàn toàn.
+- Thanh tìm kiếm lớn.
+- Video hiển thị 4–6 cột tùy kích thước.
+- Hiển thị đầy đủ category, recommendations và sidebar.
+
+## Layout
+
+- Grid nhiều cột hơn.
+- Padding rộng hơn.
+- Font size lớn và dễ đọc hơn.
+
+---
+# Câu C2 (10đ) — Thiết kế Responsive Strategy
+
+# 1. Wireframe — Mobile (< 768px)
+
+```txt
+┌──────────────────────┐
+│ LOGO      ☰ MENU     │
+│ Hotline đặt bàn      │
+├──────────────────────┤
+│     HERO IMAGE       │
+├──────────────────────┤
+│     FOOD IMAGE 1     │
+│     FOOD IMAGE 2     │
+│     FOOD IMAGE 3     │
+│     FOOD IMAGE 4     │
+│     FOOD IMAGE 5     │
+│     FOOD IMAGE 6     │
+├──────────────────────┤
+│     BOOKING FORM     │
+│ Ngày                 │
+│ Giờ                  │
+│ Số người             │
+│ Ghi chú              │
+├──────────────────────┤
+│     GOOGLE MAP       │
+├──────────────────────┤
+│       FOOTER         │
+└──────────────────────┘
+```
+
+## Phân tích Mobile
+
+- Navigation dùng hamburger ☰
+- Grid ảnh món ăn: 1 cột
+- Form đặt bàn nằm dưới gallery ảnh
+- Một số menu phụ có thể bị ẩn
+- Không có sidebar
+
+---
+
+# 2. Wireframe — Tablet (768px - 1023px)
+
+```txt
+┌────────────────────────────────┐
+│ LOGO      MENU      HOTLINE    │
+├────────────────────────────────┤
+│          HERO IMAGE            │
+├────────────────────────────────┤
+│   FOOD 1   │   FOOD 2          │
+│   FOOD 3   │   FOOD 4          │
+│   FOOD 5   │   FOOD 6          │
+├────────────────────────────────┤
+│        BOOKING FORM            │
+├────────────────────────────────┤
+│         GOOGLE MAP             │
+├────────────────────────────────┤
+│            FOOTER              │
+└────────────────────────────────┘
+```
+
+## Phân tích Tablet
+
+- Navigation hiển thị ngang
+- Grid ảnh: 2 cột
+- Form đặt bàn vẫn nằm dưới gallery
+- Google Maps nằm bên dưới form
+- Không có sidebar
+
+---
+
+# 3. Wireframe — Desktop (≥ 1024px)
+
+```txt
+┌──────────────────────────────────────────────┐
+│ LOGO      MENU      HOTLINE      BOOK NOW   │
+├──────────────────────────────────────────────┤
+│               HERO IMAGE                     │
+├──────────────────────┬───────────────────────┤
+│                      │                       │
+│    FOOD GALLERY      │     BOOKING FORM     │
+│      3 COLUMNS       │                       │
+│                      │                       │
+├──────────────────────┴───────────────────────┤
+│               GOOGLE MAP                     │
+├──────────────────────────────────────────────┤
+│                  FOOTER                      │
+└──────────────────────────────────────────────┘
+```
+
+## Phân tích Desktop
+
+- Navigation đầy đủ
+- Grid ảnh: 3 cột
+- Layout chia 2 cột:
+  - Trái: Gallery món ăn
+  - Phải: Form đặt bàn
+- Google Maps full width phía dưới
+- Không cần sidebar riêng
+
+---
+
+# 4. CSS Skeleton — Mobile First
+
+```css
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* MOBILE FIRST */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px;
+}
+
+/* HERO */
+.hero {
+    height: 300px;
+    background: #ddd;
+}
+
+/* FOOD GRID */
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+    padding: 16px;
+}
+
+/* BOOKING FORM */
+.booking-form {
+    padding: 16px;
+}
+
+/* MAP */
+.map {
+    height: 300px;
+    margin: 16px;
+    background: #ccc;
+}
+
+/* FOOTER */
+.footer {
+    padding: 20px;
+    text-align: center;
+}
+
+/* ====================== */
+/* TABLET */
+/* ====================== */
+
+@media (min-width: 768px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body {
+        font-size: 17px;
+    }
+}
+
+/* ====================== */
+/* DESKTOP */
+/* ====================== */
+
+@media (min-width: 1024px) {
+
+    .main-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    body {
+        font-size: 18px;
+    }
+}
+```
+
+---
+
+# Giải thích Responsive Strategy
+
+## Mobile
+- Ưu tiên nội dung chính
+- Grid 1 cột để dễ đọc
+- Hamburger menu tiết kiệm không gian
+
+## Tablet
+- Tăng số cột ảnh lên 2
+- Menu ngang dễ thao tác hơn
+- Layout vẫn dạng dọc
+
+## Desktop
+- Chia layout 2 cột
+- Gallery lớn hơn
+- Form luôn hiển thị bên phải giúp đặt bàn nhanh
+- Tận dụng không gian màn hình lớn
