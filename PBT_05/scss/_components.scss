@@ -1,0 +1,144 @@
+body {
+    font-family: $font-primary;
+    background: $background-color;
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    background: $secondary-color;
+    color: $white;
+    padding: $spacing-md;
+
+    @include flex-center;
+
+    justify-content: space-between;
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav {
+        display: none;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            margin-left: $spacing-md;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .hamburger {
+        font-size: 28px;
+        cursor: pointer;
+    }
+}
+
+/* PRODUCT GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    padding: $spacing-lg;
+}
+
+/* CARD */
+.card {
+    background: $white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    padding: $spacing-md;
+
+    transition: all 0.3s ease;
+
+    @include card-shadow;
+
+    .card-image {
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .card-title {
+        font-size: 20px;
+        margin: $spacing-md 0;
+    }
+
+    .card-price {
+        color: $text-color;
+        margin-bottom: $spacing-md;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+
+        .card-image img {
+            transform: scale(1.1);
+        }
+    }
+
+    &.featured {
+        border: 2px solid $primary-color;
+    }
+}
+
+/* BUTTON */
+.button {
+    background: $primary-color;
+    color: $white;
+    border: none;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: darkblue;
+        transform: scale(1.05);
+    }
+}
+
+/* TABLET */
+@include respond-to(tablet) {
+
+    .header {
+
+        .nav {
+            display: flex;
+        }
+
+        .hamburger {
+            display: none;
+        }
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body {
+        font-size: 17px;
+    }
+}
+
+/* DESKTOP */
+@include respond-to(desktop) {
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    body {
+        font-size: 18px;
+    }
+}
