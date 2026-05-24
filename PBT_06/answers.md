@@ -475,3 +475,61 @@ Ví dụ:
 Bootstrap phù hợp để phát triển nhanh và responsive tốt.
 
 CSS thuần phù hợp khi cần kiểm soát giao diện chi tiết và tùy biến cao.
+
+
+# TRACK B — TAILWINDCSS
+# Câu A1 (10đ) — Utility Classes
+
+## Giải thích các class TailwindCSS
+
+- `flex` → `display: flex`
+- `items-center` → `align-items: center`
+- `justify-between` → `justify-content: space-between`
+- `p-4` → `padding: 1rem (16px)`
+- `bg-white` → nền màu trắng
+- `shadow-md` → đổ bóng mức medium
+- `rounded-lg` → bo góc lớn
+- `hover:shadow-xl` → hover thì bóng lớn hơn
+- `transition-shadow` → hiệu ứng chuyển đổi shadow
+- `duration-300` → thời gian animation 300ms
+
+---
+
+## Image classes
+
+- `w-16` → width: 4rem (64px)
+- `h-16` → height: 4rem (64px)
+- `rounded-full` → ảnh hình tròn
+- `object-cover` → ảnh tự crop để vừa khung
+
+---
+
+## Text container
+
+- `ml-4` → margin-left: 1rem
+- `flex-1` → chiếm toàn bộ khoảng trống còn lại
+
+---
+
+## Text classes
+
+- `text-lg` → font-size lớn
+- `font-semibold` → font-weight: 600
+- `text-gray-800` → chữ xám đậm
+- `truncate` → cắt text bằng dấu `...`
+
+- `text-sm` → font-size nhỏ
+- `text-gray-500` → chữ xám nhạt
+
+---
+
+## Button classes
+
+- `px-4` → padding trái phải 1rem
+- `py-2` → padding trên dưới 0.5rem
+- `bg-blue-500` → nền xanh
+- `text-white` → chữ trắng
+- `rounded-md` → bo góc vừa
+- `hover:bg-blue-600` → hover đổi xanh đậm hơn
+- `focus:ring-2` → hiện viền focus 2px
+- `focus:ring-blue-300` → viền focus màu xanh nhạt
