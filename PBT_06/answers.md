@@ -533,3 +533,41 @@ CSS thuần phù hợp khi cần kiểm soát giao diện chi tiết và tùy bi
 - `hover:bg-blue-600` → hover đổi xanh đậm hơn
 - `focus:ring-2` → hiện viền focus 2px
 - `focus:ring-blue-300` → viền focus màu xanh nhạt
+
+# Câu A2 (10đ) — Responsive & States
+
+## Responsive prefixes
+
+- `md:` → áp dụng từ ≥768px
+- `lg:` → áp dụng từ ≥1024px
+- `xl:` → áp dụng từ ≥1280px
+
+Ví dụ:
+
+```html
+md:grid-cols-2 lg:grid-cols-4
+```
+
+- Mobile: 1 cột
+- md: 2 cột
+- lg: 4 cột
+
+---
+
+## State modifiers
+
+- `hover:` → khi hover
+- `focus:` → khi focus
+- `active:` → khi nhấn giữ
+- `group-hover:` → hover cha thì con đổi style
+
+---
+
+## Class Tailwind yêu cầu
+
+```html
+hidden md:flex
+```
+
+- `hidden` → ẩn trên mobile
+- `md:flex` → tablet trở lên hiển thị flex
