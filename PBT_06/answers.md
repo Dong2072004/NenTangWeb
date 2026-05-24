@@ -254,3 +254,224 @@ là dư thừa vì `col-12` đã bao phủ màn hình nhỏ rồi.
 
 - `<768px` → full width
 - `≥768px` → giống `.container`
+
+# PHẦN C — PHÂN TÍCH (20 điểm)
+
+# Câu C1 (10đ) — Tùy biến Bootstrap
+
+## 1. Đổi màu `$primary` từ mặc định sang `#E63946`
+
+### Quy trình thực hiện
+
+Bootstrap dùng SASS variables để quản lý màu sắc.
+
+Để đổi màu `$primary`, cần:
+
+1. Cài Node.js
+2. Cài Bootstrap bằng npm
+3. Tạo file SCSS riêng
+4. Override biến `$primary`
+5. Compile SCSS thành CSS
+
+---
+
+# Vì sao phải dùng SASS variables?
+
+Bootstrap xây dựng toàn bộ theme dựa trên variables.
+
+Ví dụ:
+
+```scss
+$primary
+$success
+$danger
+$warning
+```
+
+Khi đổi variable:
+
+- toàn bộ hệ thống đổi đồng bộ
+- dễ maintain
+- responsive tốt
+- không bị xung đột CSS
+
+---
+
+# 2. Tại sao KHÔNG nên override trực tiếp?
+
+KHÔNG nên viết:
+
+```css
+.btn-primary{
+    background: red;
+}
+```
+
+---
+
+# Lý do
+
+## 1. Chỉ đổi được 1 component
+
+Ví dụ trên chỉ đổi:
+
+- `.btn-primary`
+
+Nhưng không đổi:
+
+- `.bg-primary`
+- `.text-primary`
+- `.alert-primary`
+- `.border-primary`
+
+→ giao diện không đồng bộ.
+
+---
+
+## 2. Dễ bị Bootstrap ghi đè
+
+Khi update Bootstrap hoặc load CSS sai thứ tự:
+
+```html
+bootstrap.css
+custom.css
+```
+
+có thể bị conflict.
+
+---
+
+## 3. Khó maintain
+
+Project lớn có nhiều file CSS:
+
+- khó quản lý
+- khó debug
+- dễ lặp code
+
+---
+
+## 4. Không tận dụng hệ thống theme của Bootstrap
+
+Bootstrap đã hỗ trợ:
+
+- variables
+- mixins
+- utilities
+- responsive classes
+
+Override trực tiếp sẽ phá cấu trúc framework.
+
+---
+
+# Kết luận
+
+NÊN:
+
+```scss
+$primary: #E63946;
+```
+
+KHÔNG NÊN:
+
+```css
+.btn-primary{
+    background:red;
+}
+```
+
+vì SASS variables:
+
+- đồng bộ toàn hệ thống
+- dễ maintain
+- đúng cách Bootstrap khuyến nghị
+
+---
+
+# Câu C2 (10đ) — So sánh
+
+## CSS thuần vs Bootstrap
+
+Yêu cầu:
+- Navbar responsive
+- Product card
+
+---
+
+# 1. Số dòng CSS cần viết
+
+| CSS thuần | Bootstrap |
+|---|---|
+| Nhiều hơn | Ít hơn |
+| Phải tự viết layout, media query | Dùng class có sẵn |
+| ~200-300 dòng CSS | Có thể gần như không cần CSS |
+
+---
+
+# 2. Thời gian phát triển
+
+| CSS thuần | Bootstrap |
+|---|---|
+| Chậm hơn | Nhanh hơn |
+| Phải tự responsive | Có grid system sẵn |
+| Tự viết component | Có card/navbar/modal sẵn |
+
+Bootstrap giúp làm UI nhanh hơn rất nhiều.
+
+---
+
+# 3. Khả năng tùy biến
+
+| CSS thuần | Bootstrap |
+|---|---|
+| Tùy biến tối đa | Bị giới hạn theo framework |
+| Chủ động toàn bộ design | Theo cấu trúc Bootstrap |
+| Dễ tạo UI độc đáo | Dễ bị giống template |
+
+---
+
+# 4. Khi nào NÊN dùng Bootstrap?
+
+## NÊN dùng khi:
+
+- Làm nhanh
+- Deadline ngắn
+- Admin dashboard
+- CRUD system
+- Prototype
+- Website doanh nghiệp đơn giản
+- Team frontend nhỏ
+
+---
+
+# 5. Khi nào KHÔNG NÊN dùng Bootstrap?
+
+## KHÔNG nên dùng khi:
+
+- UI/UX custom phức tạp
+- Cần animation đặc biệt
+- Website cần design độc quyền
+- Muốn tối ưu performance tối đa
+- Hệ thống design riêng lớn
+
+Ví dụ:
+
+- game UI
+- website creative
+- landing page cao cấp
+- product design system lớn
+
+---
+
+# Kết luận
+
+| Bootstrap | CSS thuần |
+|---|---|
+| Nhanh | Linh hoạt |
+| Code ít | Kiểm soát tốt |
+| Responsive sẵn | Tự xây dựng |
+| Phù hợp project vừa và nhỏ | Phù hợp custom UI lớn |
+
+Bootstrap phù hợp để phát triển nhanh và responsive tốt.
+
+CSS thuần phù hợp khi cần kiểm soát giao diện chi tiết và tùy biến cao.
