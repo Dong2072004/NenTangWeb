@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Công Việc Cá Nhân</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+<div class="container">
+    <h1>Quản Lý Công Việc</h1>
+
+    <div id="notification"></div>
+
+    <div class="controls">
+        <div class="stats">
+            <span class="stat-item">Tổng cộng: <strong id="totalTasks">0</strong></span>
+            <span class="stat-item success-text">Đã xong: <strong id="completedTasks">0</strong></span>
+            <span class="stat-item warning-text">Chưa xong: <strong id="pendingTasks">0</strong></span>
+        </div>
+        <button class="btn-add" id="btnOpenAddForm">+ Thêm công việc</button>
+    </div>
+
+    <div id="taskList" class="task-list">
+        </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <h2 id="modalTitle">Thêm Công Việc Mới</h2>
+        <form id="taskForm">
+            <input type="hidden" id="editIndex" value="-1">
+            
+            <div class="form-group">
+                <label for="taskTitle">Tiêu đề công việc *</label>
+                <input type="text" id="taskTitle" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="taskDesc">Mô tả ngắn</label>
+                <textarea id="taskDesc" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="taskDeadline">Hạn hoàn thành *</label>
+                <input type="date" id="taskDeadline" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="taskPriority">Mức ưu tiên</label>
+                <select id="taskPriority">
+                    <option value="Cao">Cao</option>
+                    <option value="Trung bình" selected>Trung bình</option>
+                    <option value="Thấp">Thấp</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancel" id="btnCloseForm">Hủy</button>
+                <button type="submit" class="btn-add" id="btnSubmitForm">Lưu công việc</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

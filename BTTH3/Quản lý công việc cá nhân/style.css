@@ -1,0 +1,212 @@
+/* ================= GIAO DIỆN CSS ================= */
+:root {
+    --primary-color: #673ab7;
+    --success-color: #4CAF50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+/* Controls & Stats */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-item { font-size: 15px; }
+.success-text { color: var(--success-color); }
+.warning-text { color: var(--warning-color); }
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.8; }
+.btn-add { background-color: var(--primary-color); }
+.btn-edit { background-color: var(--warning-color); padding: 6px 12px; margin-right: 5px;}
+.btn-delete { background-color: var(--danger-color); padding: 6px 12px; }
+.btn-cancel { background-color: #9e9e9e; }
+
+/* Task List & Cards */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+
+/* Đổi style khi công việc đã hoàn thành [cite: 199] */
+.task-card.completed {
+    background-color: #e8f5e9;
+    border-color: #c8e6c9;
+}
+.task-card.completed .task-title {
+    text-decoration: line-through;
+    color: #757575;
+}
+
+.task-info {
+    flex: 1;
+}
+
+.task-title {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.task-meta {
+    font-size: 13px;
+    color: #555;
+    margin: 0;
+}
+
+.task-meta span {
+    display: inline-block;
+    margin-right: 15px;
+    background: #e0e0e0;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--success-color);
+}
+.checkbox-container input {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-style: italic;
+    background: #fafafa;
+    border-radius: 6px;
+}
+
+/* Modal Form */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.form-group { margin-bottom: 15px; }
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Thông báo */
+#notification {
+    display: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+.notify-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
