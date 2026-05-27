@@ -101,3 +101,67 @@ var html = `
 </div>
 `;
 ```
+
+
+----
+# Câu C1
+- Sai toán tử so sánh: if (giaSauGiam = 0) dùng toán tử gán = thay vì so sánh. Sửa thành: if (giaSauGiam === 0).
+
+- Sai kiểu dữ liệu đầu vào: tinhGiaGiamGia("100000", 20) truyền chuỗi thay vì số. Sửa thành: tinhGiaGiamGia(100000, 20).
+
+- Thiếu kiểm tra dữ liệu đầu vào: Hàm chưa kiểm tra giaBan và phanTramGiam có phải number hay không. Cần thêm điều kiện validate.
+
+- Xử lý lỗi chưa tốt: Hàm trả về chuỗi lỗi làm dữ liệu trả về không đồng nhất. Có thể dùng throw new Error().
+
+- Khai báo biến chưa phù hợp: Dùng var là cách cũ, nên đổi sang let hoặc const.
+
+- Lỗi “ẩn” của var trong vòng lặp: var có function scope nên tất cả setTimeout() dùng chung biến i, kết quả in ra Item 5 5 lần. Sửa bằng let vì let có block scope nên mỗi vòng lặp có biến i riêng.
+
+Code sau khi sửa:
+```js
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+
+    // Kiểm tra kiểu dữ liệu
+    if (
+        typeof giaBan !== "number" ||
+        typeof phanTramGiam !== "number"
+    ) {
+        return "Dữ liệu không hợp lệ";
+    }
+
+    // Kiểm tra phần trăm giảm
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ";
+    }
+
+    // Tính giảm giá
+    let giamGia = giaBan * phanTramGiam / 100;
+
+    let giaSauGiam = giaBan - giamGia;
+
+    // Kiểm tra miễn phí
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+
+    return giaSauGiam;
+}
+
+
+// Test
+const gia = tinhGiaGiamGia(100000, 20);
+console.log(`Giá sau giảm: ${gia}đ`);
+
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log(`Giá: ${gia2}`);
+
+
+// Sửa var -> let
+for (let i = 0; i < 5; i++) {
+
+    setTimeout(function () {
+        console.log("Item " + i);
+    }, 1000);
+
+}
+```
