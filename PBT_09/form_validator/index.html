@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Register Form</h2>
+
+    <form id="form">
+
+        <input id="name" placeholder="Full Name">
+        <small id="nameMsg"></small>
+
+        <input id="email" placeholder="Email">
+        <small id="emailMsg"></small>
+
+        <input id="password" type="password" placeholder="Password">
+
+        <div class="meter">
+            <div id="bar"></div>
+        </div>
+
+        <small id="passMsg"></small>
+
+        <input id="confirm" type="password" placeholder="Confirm Password">
+        <small id="confirmMsg"></small>
+
+        <input id="phone" placeholder="Phone">
+        <small id="phoneMsg"></small>
+
+        <button id="submitBtn" disabled>
+            Submit
+        </button>
+
+    </form>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
