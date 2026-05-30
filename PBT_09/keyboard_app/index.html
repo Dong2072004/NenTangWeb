@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Accessibility App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🖼️ Accessible Gallery</h1>
+
+<div class="gallery">
+    <img id="mainImage" src="" alt="Gallery Image">
+
+    <div id="thumbs"></div>
+</div>
+
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Preview">
+    </div>
+</div>
+
+<div id="palette" class="palette hidden">
+    <input
+        id="commandInput"
+        type="text"
+        placeholder="Type a command..."
+        aria-label="Command Palette"
+    >
+
+    <ul id="commandList"></ul>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
