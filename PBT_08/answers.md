@@ -335,4 +335,111 @@ console.log(product.specs.ram);
 16
 ```
 
-**Giải thích:** Spread chỉ tạo **shallow copy**. `copy.specs` và `product.specs` cùng tham chiếu đến một object nên sửa `copy.specs.ram` cũng làm đổi `product.specs.ram`.
+**Giải thích:** 
+Spread chỉ tạo **shallow copy**. `copy.specs` và `product.specs` cùng tham chiếu đến một object nên sửa `copy.specs.ram` cũng làm đổi `product.specs.ram`.
+---
+
+# Câu C1 (10đ) — Refactor Code
+
+## Code sau khi refactor
+
+```javascript
+const processOrders = (orders) =>
+    orders
+        .filter(({ status, total }) =>
+            status === "completed" && total > 100000
+        )
+        .map(({ id, customer, total }) => ({
+            id,
+            customer,
+            total,
+            discount: total * 0.1,
+            finalTotal: total * 0.9
+        }))
+        .sort((a, b) => b.finalTotal - a.finalTotal);
+```
+
+## Giải thích
+
+* **filter()**: Lọc các đơn hàng có `status = "completed"` và `total > 100000`.
+* **destructuring**: Lấy trực tiếp `status`, `total`, `id`, `customer` từ object.
+* **map()**: Tạo object mới gồm `id`, `customer`, `total`, `discount`, `finalTotal`.
+* **sort()**: Sắp xếp theo `finalTotal` giảm dần.
+* **arrow function**: Giúp code ngắn gọn và dễ đọc hơn.
+
+# Câu C2 (10đ) — Thiết kế API
+
+## Cài đặt miniArray
+
+```javascript id="7r4hws"
+const miniArray = {
+    map(arr, fn) {
+        const result = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            result.push(fn(arr[i], i, arr));
+        }
+
+        return result;
+    },
+
+    filter(arr, fn) {
+        const result = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            if (fn(arr[i], i, arr)) {
+                result.push(arr[i]);
+            }
+        }
+
+        return result;
+    },
+
+    reduce(arr, fn, initialValue) {
+        let accumulator = initialValue;
+
+        for (let i = 0; i < arr.length; i++) {
+            accumulator = fn(accumulator, arr[i], i, arr);
+        }
+
+        return accumulator;
+    }
+};
+```
+
+## Test
+
+```javascript id="5r7rxs"
+console.log(
+    miniArray.map([1, 2, 3], x => x * 2)
+);
+// [2, 4, 6]
+
+console.log(
+    miniArray.filter([1, 2, 3, 4], x => x > 2)
+);
+// [3, 4]
+
+console.log(
+    miniArray.reduce(
+        [1, 2, 3, 4],
+        (a, b) => a + b,
+        0
+    )
+);
+// 10
+```
+
+## Giải thích
+
+* **map()**: Duyệt từng phần tử, áp dụng hàm `fn` rồi đưa kết quả vào mảng mới.
+* **filter()**: Duyệt mảng, chỉ giữ lại các phần tử thỏa điều kiện của `fn`.
+* **reduce()**: Dùng biến tích lũy (`accumulator`) để gộp các phần tử thành một giá trị duy nhất.
+
+### Output
+
+```javascript id="g6ng7f"
+[2, 4, 6]
+[3, 4]
+10
+```
